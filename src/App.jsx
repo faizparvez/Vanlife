@@ -2,10 +2,14 @@ import { BrowserRouter,Routes,Route } from "react-router-dom"
 import './App.css'
 import Home from "./pages/Home"
 import About from "./pages/About"
-import Host from "./pages/Host"
 import Vans from "./pages/Vans"
 import Layout from "./components/Layout"
-
+import Vandetail from "./pages/Vandetail"
+import Hostlayout from "./components/Hostlayout"
+import Hostincome from "./pages/Hostincome"
+import Hostdashboard from "./pages/Hostdashboard"
+import Hostvans from "./pages/Hostvans"
+import Hostreviews from "./pages/Hostreviews"
 
 function App() {
 
@@ -14,14 +18,29 @@ function App() {
     <Routes>
       
   
-     <Route path="/" element={<Layout/>} />
-         <Route path="home" element={<Home/>} />
-         <Route path="host"  element={<Host/>}/>
+     <Route path="/" element={<Layout/>} >
+         <Route index element={<Home/>} />
+
+         <Route path="host"  element={<Hostlayout/>} >
+
+            <Route index element={<Hostdashboard/>} />           
+            <Route path="income" element={ <Hostincome/>}  />           
+            <Route path="reviews" element={ <Hostreviews/> } />           
+            <Route path="vans" element={ <Hostvans/> } />
+         
+         </Route>           
+
+
          <Route path="about" element={<About/>}/>
          <Route path="vans"  element={<Vans/>}/>
+         <Route path="vans/:id"  element={<Vandetail/>}/>
+    
 
-     {/* </Route> */}
-
+    
+    
+    
+     </Route>
+    
 
 
     </Routes>
