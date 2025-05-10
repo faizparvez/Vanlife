@@ -1,7 +1,3 @@
-export default function Vans(){
-    return(
-        <>
-        <h1>Vans page</h1>
-        </>
-    )
+export default function Vans() {
+  return <h2>This is the vans page!!</h2>;
 }
