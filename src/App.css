@@ -30,8 +30,8 @@ header {
 
 .navbar-div .logo {
   color: #1a73e8;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.7rem;
+  font-weight: 1000;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -46,7 +46,7 @@ header {
   font-weight: 600;
   transition: color 0.3s ease;
   color: rgba(0, 0, 0, 0.7);
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .navbar-div a:hover, .nav-links a:hover {
@@ -58,7 +58,7 @@ header {
 .home-container {
   background-color: #f6f7fb;
   min-height: calc(100vh - 140px);
-  padding: 6rem 0 8rem 0;
+  padding: 3rem 0 8rem 0;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -104,7 +104,7 @@ header {
 }
 
 .home-container h1 .period {
-  color: #0d47a1;
+  color: #ffa000;
 }
 
 .home-container p {
@@ -118,7 +118,7 @@ header {
 
 .home-container a {
   display: inline-block;
-  background-color: #ffa000;
+  background-color: #0d47a1;
   color: white;
   padding: 1.2rem 2.5rem;
   text-decoration: none;

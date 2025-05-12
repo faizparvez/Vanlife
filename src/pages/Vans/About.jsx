@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom"
+import bgImg from "/about-hero.png"
+
 export default function About() {
   return (
     <div className="about-page-container">
