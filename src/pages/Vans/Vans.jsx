@@ -1,3 +1,18 @@
+import { useEffect } from "react";
+
 export default function Vans() {
-  return <h2>This is the vans page!!</h2>;
+
+useEffect(() => {
+  fetch('/api/vans')
+    .then(res => res.json())
+    .then(json => console.log(json.vans));
+}, []);
+
+
+
+  return(
+    <>
+    <div>Explore our van options</div>
+    </>
+  )
 }
