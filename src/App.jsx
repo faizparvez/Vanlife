@@ -9,26 +9,27 @@ import HostDashboard from "./pages/Host/HostDashboard";
 import HostIncome from "./pages/Host/HostIncome";
 import HostReviews from "./pages/Host/HostReviews";
 import HostVans from "./pages/Host/HostVans";
+import VanDetails from "./pages/Vans/VanDetails";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
 
-        <Route    path="/"        element={<HomeLayout />} >
+          <Route path="/"  element={<HomeLayout />} >
             <Route index           element={<Home />} />  
             <Route path="/about"   element={<About />} />
             <Route path="/vans"    element={<Vans />} />
+            <Route path="/vans/:id"    element={<VanDetails />} />    
             <Route path="/host"    element={<HostLayout />} >
                <Route index                  element={<HostDashboard/>} />
                <Route path="/host/income"    element={<HostIncome/>} />
                <Route path="/host/reviews"   element={<HostReviews/>} />
                <Route path="/host/vans"      element={<HostVans/>} />
-               <Route path="/host/vans:id"   element={<HostReviews/>} />
+               <Route path="/host/vans/:id"   element={<HostReviews/>} />
             </Route>
-
-
-        </ Route>
+          
+          </ Route>
       
       </Routes>
     </BrowserRouter>
