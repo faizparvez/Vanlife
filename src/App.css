@@ -347,3 +347,274 @@ footer {
     font-size: 1rem;
   }
 }
+
+
+/* Vans Page Styles */
+.vans-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 20px 4rem 20px;
+  min-height: calc(100vh - 140px);
+}
+
+.vans-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.vans-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #0d47a1;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.vans-subtitle {
+  font-size: 1.2rem;
+  color: #546e7a;
+  margin-bottom: 2rem;
+}
+
+.vans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0;
+}
+
+.van-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(26, 115, 232, 0.08);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 420px;
+}
+
+.van-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #1a73e8 0%, #ffa000 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.van-card:hover::before {
+  opacity: 1;
+}
+
+.van-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(26, 115, 232, 0.2);
+  border-color: #1a73e8;
+}
+
+.van-image-container {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  flex-shrink: 0;
+}
+
+.van-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.van-card:hover .van-image {
+  transform: scale(1.05);
+}
+
+.van-info {
+  padding: 1.5rem;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.van-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #e8f0fe 50%, transparent 100%);
+}
+
+.van-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0d47a1;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.van-card:hover .van-name {
+  color: #1a73e8;
+}
+
+.van-price-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.van-price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #1a73e8;
+  margin: 0;
+}
+
+.van-price span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #78909c;
+  margin-left: 0.2rem;
+}
+
+.van-type {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+/* Van Type Styling - Different colors for different types */
+.van-type-simple {
+  background-color: #fff3e0;
+  color: #ef6c00;
+  border-color: #ffcc80;
+}
+
+.van-type-luxury {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  border-color: #ce93d8;
+}
+
+.van-type-rugged {
+  background-color: #e8f5e8;
+  color: #2e7d32;
+  border-color: #a5d6a7;
+}
+
+.van-card:hover .van-type-simple {
+  background-color: #ef6c00;
+  color: white;
+}
+
+.van-card:hover .van-type-luxury {
+  background-color: #7b1fa2;
+  color: white;
+}
+
+.van-card:hover .van-type-rugged {
+  background-color: #2e7d32;
+  color: white;
+}
+
+/* Loading State */
+.vans-grid:empty::after {
+  content: "Loading vans...";
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #78909c;
+  padding: 2rem;
+  grid-column: 1 / -1;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .vans-page-container {
+    padding: 1.5rem 15px 3rem 15px;
+  }
+  
+  .vans-title {
+    font-size: 2.2rem;
+  }
+  
+  .vans-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .vans-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .van-card {
+    height: 380px;
+  }
+  
+  .van-image-container {
+    height: 240px;
+  }
+  
+  .van-info {
+    padding: 1.2rem;
+  }
+  
+  .van-name {
+    font-size: 1.2rem;
+  }
+  
+  .van-price {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .vans-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .van-card {
+    height: 360px;
+  }
+  
+  .vans-title {
+    font-size: 1.8rem;
+  }
+  
+  .van-image-container {
+    height: 220px;
+  }
+  
+  .van-price-type {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  
+  .van-type {
+    align-self: flex-end;
+  }
+}
