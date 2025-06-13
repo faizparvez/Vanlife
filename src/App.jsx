@@ -32,17 +32,15 @@ function App() {
                <Route path="/host/income"    element={<HostIncome/>} />
                <Route path="/host/reviews"   element={<HostReviews/>} />
                <Route path="/host/vans"      element={<HostVans/>} />
-               <Route path="/host/vans/:id"   element={<HostVanLayout/>} />
+               <Route path="/host/vans/:id"   element={<HostVanLayout/>} >
                   <Route index                   element={<HostVanDetails/>} />
                   <Route path="/host/vans/:id/pricing"   element={<HostVanPricing/>} />
                   <Route path="/host/vans/:id/photos"   element={<HostVanPhotos/>} />
-
-
-
+               </Route> 
 
             </Route>
           
-          </ Route>
+          </Route>
       
       </Routes>
     </BrowserRouter>
