@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Vans() {
-  const [vans, setvans] = useState([]);
+  const [vans, setVans] = useState([]);
 
   useEffect(() => {
     fetch("/api/vans")
       .then((res) => res.json())
-      .then((data) => setvans(data.vans));
+      .then((data) => setVans(data.vans));
   }, []);
 
-  console.log(vans);
+
 
   const vanslist = vans.map((van) => {
     return (
