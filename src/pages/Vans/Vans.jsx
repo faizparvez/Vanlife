@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 export default function Vans() {
   const [vans, setVans] = useState([]);
+
+  const [searchParams,setSearchParams]=useSearchParams();
+  const typefilter=searchParams.get("type");
 
   useEffect(() => {
     fetch("/api/vans")
@@ -10,9 +13,11 @@ export default function Vans() {
       .then((data) => setVans(data.vans));
   }, []);
 
+  const displayedVans=typefilter?vans.filter((van)=>{
+    return (van.type===typefilter)
+  }):vans;
 
-
-  const vanslist = vans.map((van) => {
+  const vanslist = displayedVans.map((van) => {
     return (
       <div key={van.id} className="van-card">
         <Link to={`/vans/${van.id}`}>
@@ -40,6 +45,18 @@ export default function Vans() {
         <h1 className="vans-title">Explore our van options</h1>
         <p className="vans-subtitle">Find the perfect van for your next adventure</p>
       </div>
+      <div className="van-list-filter-buttons">
+
+        <button onClick={()=>setSearchParams({type:"simple"})} className={`van-type luxury ${typefilter==="simple"?"selected":""}`}>SIMPLE</button>
+        
+        <button onClick={()=>setSearchParams({type:"rugged"})} className={`van-type luxury ${typefilter==="rugged"?"selected":""}`}>RUGGED</button>
+        
+        <button onClick={()=>setSearchParams({type:"luxury"})} className={`van-type luxury ${typefilter==="luxury"?"selected":""}`}>LUXURY</button>
+        
+        {typefilter && <button onClick={()=>setSearchParams({})} className="van-type clear-filters">CLEAR FILTER</button>}
+      
+      </div> 
+      
       <div className="vans-grid">
         {vanslist}
       </div>
