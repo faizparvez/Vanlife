@@ -7,6 +7,7 @@ export default function Vans() {
   const [searchParams,setSearchParams]=useSearchParams();
   const typefilter=searchParams.get("type");
 
+  
   useEffect(() => {
     fetch("/api/vans")
       .then((res) => res.json())
@@ -20,7 +21,7 @@ export default function Vans() {
   const vanslist = displayedVans.map((van) => {
     return (
       <div key={van.id} className="van-card">
-        <Link to={`/vans/${van.id}`}>
+        <Link to={`/vans/${van.id}`} state={ { search:`?${searchParams.toString()}`} } >
         <div className="van-image-container">
           <img src={van.imageUrl} className="van-image" alt={van.name} />
         </div>
