@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
+
+export function loader(){
+  return "the vans"
+}
+
 export default function Vans() {
   const [vans, setVans] = useState([]);
 
