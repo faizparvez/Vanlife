@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 export default function VanDetails() {
   const params = useParams();
   const location = useLocation();
+  console.log(location)
 
   const [van, setVan] = useState({});
 
@@ -15,11 +16,12 @@ export default function VanDetails() {
   }, []);
 
   const search=location.state?.search||"";
+  const type=location.state?.type||"all";
 
   return (
     <div className="van-details-container">
       <Link to={`..${search}`} relative="path" className="back-link spacing">
-        Back to all vans
+        Back to {type} vans
       </Link>
 
       <div className="van-details-content">
