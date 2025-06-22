@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
-
+import { Link, useSearchParams,useLoaderData } from "react-router-dom";
+import { getVans } from "../../mirage/api";
 
 export function loader(){
-  return "the vans"
+  return getVans();
 }
 
 export default function Vans() {
-  const [vans, setVans] = useState([]);
+  // const [vans, setVans] = useState([]);
 
   const [searchParams,setSearchParams]=useSearchParams();
   const typefilter=searchParams.get("type");
 
+  const vans = useLoaderData()
   
-  useEffect(() => {
-    fetch("/api/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
-  }, []);
+  // useEffect(() => {
+  //   fetch("/api/vans")
+  //     .then((res) => res.json())
+  //     .then((data) => setVans(data.vans));
+  // }, []);
 
   const displayedVans=typefilter?vans.filter((van)=>{
     return (van.type===typefilter)
