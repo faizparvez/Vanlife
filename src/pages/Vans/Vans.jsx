@@ -7,18 +7,21 @@ export function loader(){
 }
 
 export default function Vans() {
-  // const [vans, setVans] = useState([]);
 
+  // const [vans, setVans] = useState([]);
   const [searchParams,setSearchParams]=useSearchParams();
   const typefilter=searchParams.get("type");
 
   const vans = useLoaderData()
-  
+  // console.log(vans)
+
+
   // useEffect(() => {
   //   fetch("/api/vans")
   //     .then((res) => res.json())
   //     .then((data) => setVans(data.vans));
   // }, []);
+
 
   const displayedVans=typefilter?vans.filter((van)=>{
     return (van.type===typefilter)
