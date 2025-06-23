@@ -19,6 +19,7 @@ import HostVanLayout from "./components/HostVanLayout";
 import HostVanDetails from "./pages/Host/HostVan/HostVanDetails";
 import HostVanPricing from "./pages/Host/HostVan/HostVanPricing";
 import HostVanPhotos from "./pages/Host/HostVan/HostVanPhotos";
+import Login from "./pages/login";
 import NotFound from "./pages/NotFound";
 import Error from "./components/Error";
 import { makeServer } from "./mirage/server";
@@ -35,6 +36,7 @@ const router = createBrowserRouter(
     < Route path="/" element={<HomeLayout />} >
       
       <Route index element={<Home />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/about" element={<About />} />
       <Route path="/vans" element={<Vans />} loader={vansLoader} errorElement={<Error/>} />
       <Route path="/vans/:id" element={<VanDetails />} />
