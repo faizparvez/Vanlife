@@ -4,7 +4,6 @@ import {
   RouterProvider,
   createRoutesFromElements,
   Route,
-  Link,
 } from "react-router-dom";
 import Home from "./pages/Vans/Home";
 import About from "./pages/Vans/About";
@@ -21,27 +20,41 @@ import HostVanDetails from "./pages/Host/HostVan/HostVanDetails";
 import HostVanPricing from "./pages/Host/HostVan/HostVanPricing";
 import HostVanPhotos from "./pages/Host/HostVan/HostVanPhotos";
 import NotFound from "./pages/NotFound";
+import Error from "./components/Error";
+import { makeServer } from "./mirage/server";
+
+
+
+if (import.meta.env.MODE === "development") {
+  makeServer({ environment: "development", logging: true });
+}
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<HomeLayout />}>
+    < Route path="/" element={<HomeLayout />} >
+      
       <Route index element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/vans" element={<Vans />} loader={vansLoader} />
+      <Route path="/vans" element={<Vans />} loader={vansLoader} errorElement={<Error/>} />
       <Route path="/vans/:id" element={<VanDetails />} />
+      
       <Route path="/host" element={<HostLayout />}>
         <Route index element={<HostDashboard />} />
         <Route path="/host/income" element={<HostIncome />} />
         <Route path="/host/reviews" element={<HostReviews />} />
         <Route path="/host/vans" element={<HostVans />} />
+      
         <Route path="/host/vans/:id" element={<HostVanLayout />}>
           <Route index element={<HostVanDetails />} />
           <Route path="/host/vans/:id/pricing" element={<HostVanPricing />} />
           <Route path="/host/vans/:id/photos" element={<HostVanPhotos />} />
         </Route>
+      
       </Route>
 
       <Route path="*" element={<NotFound />} />
+    
     </Route>
   )
 );
