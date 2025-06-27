@@ -1,15 +1,28 @@
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useParams, Link, Outlet , useLoaderData } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { getHostVans } from "../mirage/api";
+// navlink left
+
+
+export async function loader(  {params} ){
+  await requireAuth()
+  return getHostVans(params.id);
+}
+
 
 export default function HostVanLayout() {
   const params = useParams();
-  const [currentVan, setCurrentVan] = useState({});
+  // const [currentVan, setCurrentVan] = useState({});
 
-  useEffect(() => {
-    fetch(`/api/vans/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setCurrentVan(data.van));
-  }, [params.id]);
+  // useEffect(() => {
+  //   fetch(`/api/vans/${params.id}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setCurrentVan(data.van));
+  // }, [params.id]);
+
+  const currentVan = useLoaderData();
+  // console.log(data)
+
 
   return (
     <section className="host-van-layout">

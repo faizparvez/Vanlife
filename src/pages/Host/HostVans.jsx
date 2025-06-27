@@ -1,21 +1,29 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { useEffect, useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { getHostVans } from "../../mirage/api";
 
+export async function loader() {
+  await requireAuth()
+  return getHostVans();
+}
 
 export default function HostVans() {
-  const [hostVans, setHostVans] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [hostVans, setHostVans] = useState([]);
+  // const [isLoading, setIsLoading] = useState(true);
 
-  const id = "123";
+  // const id = "123";
+  // useEffect(() => {
+  //   fetch(`/api/hosts/${id}/vans`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setHostVans(data.vans);
+  //       setIsLoading(false);
+  //     });
+  // }, []);
 
-  useEffect(() => {
-    fetch(`/api/hosts/${id}/vans`)
-      .then((res) => res.json())
-      .then((data) => {
-        setHostVans(data.vans);
-        setIsLoading(false);
-      });
-  }, []);
+
+  const hostVans = useLoaderData();
+  // console.log(hostVans);
 
   const displayVans = hostVans.map((van) => {
     return (
@@ -26,8 +34,13 @@ export default function HostVans() {
           </div>
           <div className="host-van-info">
             <h2 className="host-van-name">{van.name}</h2>
-            <div className="host-van-price">${van.price}<span>/day</span></div>
-            <div className={`host-van-type host-van-type-${van.type.toLowerCase()}`}>
+            <div className="host-van-price">
+              ${van.price}
+              <span>/day</span>
+            </div>
+            <div
+              className={`host-van-type host-van-type-${van.type.toLowerCase()}`}
+            >
               {van.type}
             </div>
           </div>
@@ -44,14 +57,15 @@ export default function HostVans() {
           <p className="host-vans-subtitle">Manage your rental fleet</p>
         )}
       </div>
-      
+
       <div className="host-vans-grid">
-        {isLoading ? (
+        {/* {isLoading ? (
           <div className="host-vans-loading">
             <div className="loading-spinner"></div>
             <p>Loading your vans...</p>
           </div>
-        ) : hostVans.length > 0 ? (
+        ) :   */}
+        {hostVans.length > 0 ? (
           displayVans
         ) : (
           <div className="host-vans-empty">

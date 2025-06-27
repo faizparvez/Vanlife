@@ -1,22 +1,36 @@
-import { useParams, Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useParams, Link, useLocation, useLoaderData } from "react-router-dom";
+// import { useEffect, useState } from "react";
+import { getVans } from "../../mirage/api";
 // import "./VanDetails.css"; // Import the CSS file
 
+
+export function loader( { params } ) {
+  // console.log(params);
+  return getVans(params.id);
+}
+
+
+
 export default function VanDetails() {
-  const params = useParams();
+  // const params = useParams();
+  // const [van, setVan] = useState({});
+
+  // useEffect(() => {
+  //   fetch(`/api/vans/${params.id}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setVan(data.van));
+  // }, []);
+
+  
+  
+  
   const location = useLocation();
-  console.log(location)
+  // console.log(location)
+  const van = useLoaderData();
+  // console.log(van);
 
-  const [van, setVan] = useState({});
-
-  useEffect(() => {
-    fetch(`/api/vans/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setVan(data.van));
-  }, []);
-
-  const search=location.state?.search||"";
-  const type=location.state?.type||"all";
+  const search = location.state?.search || "";
+  const type = location.state?.type || "all";
 
   return (
     <div className="van-details-container">
