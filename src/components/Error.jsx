@@ -6,9 +6,9 @@ export default function Error(){
     console.log(error);
     
     return(
-        <>
-        <h1>Error: {error.message}</h1>
-        <pre>{error.status} - {error.statusText}</pre>
-        </>
+        <div className="error-container">
+            <h1 className="error-heading">Error: {error.message}</h1>
+            <pre className="error-details">{error.status} - {error.statusText}</pre>
+        </div>
     )
 }
