@@ -1,6 +1,7 @@
 import { useParams, Link, Outlet , useLoaderData } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { getHostVans } from "../mirage/api";
+import { requireAuth } from "../mirage/utils";
+// import { useEffect, useState } from "react";
 // navlink left
 
 

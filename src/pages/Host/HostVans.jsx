@@ -1,6 +1,7 @@
 // import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { getHostVans } from "../../mirage/api";
+import { requireAuth } from "../../mirage/utils";
 
 export async function loader() {
   await requireAuth()
