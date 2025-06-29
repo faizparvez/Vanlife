@@ -1,5 +1,20 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData , Form } from "react-router-dom";
+
+
+
+export async function action( {request} ) {
+  console.log(request);
+  const data = await request.formData();
+  console.log(data);
+
+  const email = data.get("email");
+  const password = data.get("password");
+
+  console.log( email , password )
+
+  return null;
+}
 
 
 export function loader( {request} ){
@@ -19,7 +34,7 @@ export default function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(loginFormData);
+    // console.log(loginFormData);
   }
 
   function handleChange(e){
@@ -38,9 +53,9 @@ export default function Login() {
       
       <h1>Sign in to your account</h1>
       
-      {message && <h2>{message}</h2>}
+      {message && <h2 className="red">{message}</h2>}
 
-      <form onSubmit={handleSubmit} className="login-form">
+      <Form method="post" className="login-form">
         <input
           name="email"
           onChange={handleChange}
@@ -56,7 +71,7 @@ export default function Login() {
           value={loginFormData.password}
         />
         <button>Log in</button>
-      </form>
+      </Form>
     
     </div>
   );

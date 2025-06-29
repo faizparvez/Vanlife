@@ -6,7 +6,7 @@ export async function requireAuth() {
     const res = redirect("/login?message=You must login first.");
     // Object.defineProperty(res, "body", { value: true });
     res.body=true;
-    console.log(res);
+    // console.log(res);
     throw res;
   }
   return null;
