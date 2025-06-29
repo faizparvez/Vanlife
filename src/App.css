@@ -1068,14 +1068,6 @@ a .van-card:hover,
 
 
 
-
-
-
-
-
-
-
-
 /* Loading State */
 .van-details-container:empty::after {
   content: "Loading van details...";
@@ -1201,6 +1193,20 @@ a .van-card:hover,
     height: 250px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Host Layout Navigation Styles */
 .host-nav {
