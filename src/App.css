@@ -2825,3 +2825,284 @@ a .van-card:hover,
     padding: 1rem 1.25rem;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Login Page Styles for VANGO */
+
+.login-container {
+  background-color: #FEF3E2;
+  min-height: calc(100vh - 140px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 20px;
+  position: relative;
+}
+
+.login-form-wrapper {
+  background-color: white;
+  padding: 3rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-form-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.login-form-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to right, #FAC67A, #000000);
+  border-radius: 16px 16px 0 0;
+}
+
+.login-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  position: relative;
+}
+
+.login-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #FAC67A;
+  border-radius: 2px;
+}
+
+.login-message {
+  background-color: #FAC67A;
+  color: #000000;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  box-shadow: 0 2px 8px rgba(250, 198, 122, 0.3);
+}
+
+.login-error {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.login-input {
+  padding: 1.2rem 1.5rem;
+  border: 2px solid #e8e8e8;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fafafa;
+  color: #000000;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.login-input:focus {
+  border-color: #FAC67A;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(250, 198, 122, 0.1);
+  transform: translateY(-2px);
+}
+
+.login-input::placeholder {
+  color: #888888;
+  font-weight: 500;
+}
+
+.login-button {
+  background-color: #000000;
+  color: white;
+  padding: 1.3rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-button:hover:not(:disabled) {
+  background-color: #FAC67A;
+  color: #000000;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(250, 198, 122, 0.4);
+}
+
+.login-button:active:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(250, 198, 122, 0.3);
+}
+
+.login-button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Loading state animation */
+.login-button:disabled::after {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  border: 2px solid #666666;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 1.5rem 15px;
+    min-height: calc(100vh - 120px);
+  }
+
+  .login-form-wrapper {
+    padding: 2.5rem 2rem;
+    max-width: 380px;
+  }
+
+  .login-title {
+    font-size: 1.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .login-form {
+    gap: 1.2rem;
+  }
+
+  .login-input {
+    padding: 1.1rem 1.3rem;
+    font-size: 1rem;
+  }
+
+  .login-button {
+    padding: 1.2rem 1.8rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 1rem 10px;
+  }
+
+  .login-form-wrapper {
+    padding: 2rem 1.5rem;
+    max-width: 340px;
+  }
+
+  .login-title {
+    font-size: 1.6rem;
+  }
+
+  .login-input {
+    padding: 1rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .login-button {
+    padding: 1.1rem 1.6rem;
+    font-size: 0.95rem;
+  }
+
+  .login-message,
+  .login-error {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Focus trap and accessibility improvements */
+.login-input:focus-visible {
+  outline: 2px solid #FAC67A;
+  outline-offset: 2px;
+}
+
+.login-button:focus-visible {
+  outline: 2px solid #FAC67A;
+  outline-offset: 2px;
+}
