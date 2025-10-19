@@ -19,7 +19,7 @@ import HostVanLayout, { loader as hostVanLayoutLoader } from "./components/HostV
 import HostVanDetails from "./pages/Host/HostVan/HostVanDetails";
 import HostVanPricing from "./pages/Host/HostVan/HostVanPricing";
 import HostVanPhotos from "./pages/Host/HostVan/HostVanPhotos";
-import Login , { loader as loginLoader , action as loginAction } from "./pages/login";
+import Login , { loader as loginLoader , action as loginAction } from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Error from "./components/Error";
 import { requireAuth } from "./mirage/utils";
