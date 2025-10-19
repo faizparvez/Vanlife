@@ -3,13 +3,10 @@ import { useParams, Link, useLocation, useLoaderData } from "react-router-dom";
 import { getVans } from "../../mirage/api";
 // import "./VanDetails.css"; // Import the CSS file
 
-
-export function loader( { params } ) {
+export function loader({ params }) {
   // console.log(params);
   return getVans(params.id);
 }
-
-
 
 export default function VanDetails() {
   // const params = useParams();
@@ -21,9 +18,6 @@ export default function VanDetails() {
   //     .then((data) => setVan(data.van));
   // }, []);
 
-  
-  
-  
   const location = useLocation();
   // console.log(location)
   const van = useLoaderData();
@@ -37,7 +31,6 @@ export default function VanDetails() {
       <Link to={`..${search}`} relative="path" className="back-link spacing">
         Back to {type} vans
       </Link>
-
       <div className="van-details-content">
         <div className="van-image-section">
           <div className="van-image-wrapper">
